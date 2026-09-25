@@ -114,26 +114,26 @@ export function ResumeUploader({
   const isFull = files.length >= maxFiles
 
   return (
-    <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+    <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-start gap-3">
           <span
             aria-hidden="true"
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400"
           >
             <Upload className="h-5 w-5" />
           </span>
           <div>
-            <h2 className="text-sm font-semibold text-slate-900 sm:text-base">
+            <h2 className="font-display text-base leading-tight font-semibold tracking-tight text-slate-900 sm:text-lg dark:text-slate-50">
               Currículums
             </h2>
-            <p className="mt-0.5 text-xs leading-relaxed text-slate-500 sm:text-sm">
+            <p className="mt-0.5 text-xs leading-relaxed text-slate-500 sm:text-sm dark:text-slate-400">
               Arrastra o selecciona hasta {maxFiles} archivos PDF.
             </p>
           </div>
         </div>
 
-        <span className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium tabular-nums text-slate-600">
+        <span className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium tabular-nums text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
           {files.length}/{maxFiles}
         </span>
       </div>
@@ -152,30 +152,32 @@ export function ResumeUploader({
         onDrop={handleDrop}
         className={`mt-4 flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-8 text-center transition focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/20 sm:py-10 ${
           disabled
-            ? 'cursor-not-allowed border-slate-200 bg-slate-50 opacity-60'
+            ? 'cursor-not-allowed border-slate-200 bg-slate-50 opacity-60 dark:border-slate-800 dark:bg-slate-800/50'
             : isDragging
-              ? 'border-indigo-500 bg-indigo-50'
-              : 'border-slate-300 bg-slate-50 hover:border-indigo-400 hover:bg-indigo-50/50'
+              ? 'border-indigo-500 bg-indigo-50 dark:border-indigo-400 dark:bg-indigo-500/10'
+              : 'border-slate-300 bg-slate-50 hover:border-indigo-400 hover:bg-indigo-50/50 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-indigo-500 dark:hover:bg-indigo-500/10'
         }`}
       >
         <span
           aria-hidden="true"
           className={`grid h-11 w-11 place-items-center rounded-full transition ${
-            isDragging && !disabled ? 'bg-indigo-100 text-indigo-600' : 'bg-white text-indigo-500 shadow-sm'
+            isDragging && !disabled
+              ? 'bg-indigo-100 text-indigo-600 dark:bg-indigo-500/25 dark:text-indigo-300'
+              : 'bg-white text-indigo-500 shadow-sm dark:bg-slate-800 dark:text-indigo-400'
           }`}
         >
           <Upload className="h-5 w-5" />
         </span>
 
-        <p className="text-sm font-medium text-slate-700">
+        <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
           {isDragging ? 'Suelta aquí tus currículums' : 'Arrastra tus CV aquí'}
         </p>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-slate-500 dark:text-slate-400">
           o haz clic para seleccionarlos · solo PDF
         </p>
 
         {isFull && !disabled && (
-          <p className="mt-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
+          <p className="mt-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700 dark:bg-amber-500/15 dark:text-amber-300">
             Límite de {maxFiles} archivos alcanzado
           </p>
         )}
@@ -195,7 +197,7 @@ export function ResumeUploader({
       {error && (
         <p
           role="alert"
-          className="mt-3 inline-flex items-start gap-2 rounded-lg bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700"
+          className="mt-3 inline-flex items-start gap-2 rounded-lg bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700 dark:bg-rose-500/10 dark:text-rose-300"
         >
           <CircleAlert aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />
           {error}
@@ -205,27 +207,32 @@ export function ResumeUploader({
       {/* Selected files */}
       {files.length > 0 && (
         <div className="mt-4">
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
             Archivos seleccionados
           </h3>
           <ul className="mt-2 space-y-2">
             {files.map((file, index) => (
               <li
                 key={`${file.name}-${file.lastModified}-${index}`}
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2.5 transition hover:border-slate-300"
+                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2.5 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/60 dark:hover:border-slate-700"
               >
                 <span
                   aria-hidden="true"
-                  className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-rose-50 text-rose-600"
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-rose-50 text-rose-600 dark:bg-rose-500/15 dark:text-rose-400"
                 >
                   <FileText className="h-4 w-4" />
                 </span>
 
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium text-slate-800" title={file.name}>
+                  <p
+                    className="truncate text-sm font-medium text-slate-800 dark:text-slate-100"
+                    title={file.name}
+                  >
                     {file.name}
                   </p>
-                  <p className="text-xs text-slate-400">{formatSize(file.size)}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {formatSize(file.size)}
+                  </p>
                 </div>
 
                 <button
@@ -233,7 +240,7 @@ export function ResumeUploader({
                   onClick={() => removeAt(index)}
                   disabled={disabled}
                   aria-label={`Eliminar ${file.name}`}
-                  className="rounded-md p-1.5 text-slate-400 transition hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-rose-500/20 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-md p-1.5 text-slate-400 transition hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-rose-500/20 disabled:cursor-not-allowed disabled:opacity-50 dark:text-slate-500 dark:hover:bg-rose-500/10 dark:hover:text-rose-400"
                 >
                   <X className="h-4 w-4" />
                 </button>

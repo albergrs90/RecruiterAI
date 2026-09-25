@@ -1,0 +1,31 @@
+{
+  "name": "RecruiterAI — Análisis de currículums con IA",
+  "short_name": "RecruiterAI",
+  "description": "Convierte una oferta de trabajo y hasta 5 CV en un ranking de candidatos con puntuaciones, fit cultural y preguntas de entrevista.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

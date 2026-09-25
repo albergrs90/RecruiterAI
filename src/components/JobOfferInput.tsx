@@ -95,17 +95,17 @@ export function JobOfferInput({
 
   return (
     <section
-      className={`rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 ${className}`}
+      className={`rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 dark:border-slate-800 dark:bg-slate-900 ${className}`}
     >
       <div className="flex items-start gap-3">
         <span
           aria-hidden="true"
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600"
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400"
         >
           <Briefcase className="h-5 w-5" />
         </span>
         <div>
-          <h2 className="text-sm font-semibold text-slate-900 sm:text-base">
+          <h2 className="font-display text-base leading-tight font-semibold tracking-tight text-slate-900 sm:text-lg dark:text-slate-50">
             Oferta de trabajo
           </h2>
           <p className="mt-0.5 text-xs leading-relaxed text-slate-500 sm:text-sm">
@@ -123,13 +123,13 @@ export function JobOfferInput({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder="Ej.: Desarrollador/a Full Stack React + .NET — Buscamos una persona con experiencia en…"
-        className="mt-4 min-h-44 w-full resize-y rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-3 text-sm leading-relaxed text-slate-800 placeholder:text-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 sm:min-h-48 sm:text-base"
+        className="mt-4 min-h-44 w-full resize-y rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-3 text-sm leading-relaxed text-slate-800 placeholder:text-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 sm:min-h-48 sm:text-base dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-indigo-400 dark:focus:bg-slate-900 dark:focus:ring-indigo-400/10"
         spellCheck={false}
       />
 
       <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
             <WandSparkles aria-hidden="true" className="h-3.5 w-3.5" />
             Cargar oferta de ejemplo:
           </span>
@@ -144,8 +144,8 @@ export function JobOfferInput({
                 aria-pressed={isActive}
                 className={`inline-flex max-w-full items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/20 ${
                   isActive
-                    ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm'
-                    : 'border-slate-300 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600'
+                    ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm dark:border-indigo-500 dark:bg-indigo-500'
+                    : 'border-slate-300 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400'
                 }`}
               >
                 <FileText aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
@@ -155,7 +155,7 @@ export function JobOfferInput({
           })}
         </div>
 
-        <span className="shrink-0 text-xs tabular-nums text-slate-400">
+        <span className="shrink-0 text-xs tabular-nums text-slate-500 dark:text-slate-400">
           {value.length} caracteres
         </span>
       </div>
